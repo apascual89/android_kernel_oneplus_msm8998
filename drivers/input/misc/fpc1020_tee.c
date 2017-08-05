@@ -579,17 +579,6 @@ static int fpc1020_probe(struct platform_device *pdev)
 		push_component_info(FINGERPRINTS, "fpc", "FPC");
 	}
 
-	gpio_set_value(fpc1020->rst_gpio, 1);
-	udelay(FPC1020_RESET_HIGH1_US);
-
-	gpio_set_value(fpc1020->rst_gpio, 0);
-	udelay(FPC1020_RESET_LOW_US);
-
-	gpio_set_value(fpc1020->rst_gpio, 1);
-	udelay(FPC1020_RESET_HIGH2_US);
-    #endif
-
-	fpc1020_g = fpc1020;
 	dev_info(dev, "%s: ok\n", __func__);
 exit:
 	return rc;
